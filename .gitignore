@@ -1,0 +1,14 @@
+# API Keys and Secrets
+.env
+sniper_bot/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+
+# Results - ALLOWED
+!daily_hits_*.md
+!processed_companies.txt

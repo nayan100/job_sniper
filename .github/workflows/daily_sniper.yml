@@ -1,0 +1,45 @@
+# Golden Version: 2026-05-26 14:30:00
+name: Daily Sniper Bot
+
+on:
+  schedule:
+    - cron: '0 8 * * *' 
+  workflow_dispatch: 
+
+permissions:
+  contents: write
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r sniper_bot/requirements.txt
+
+      - name: Run Sniper Bot
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+        run: python sniper_bot/main.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          # Create file if it somehow went missing to prevent fatal pathspec errors
+          touch processed_companies.txt 
+          git add daily_hits_*.md processed_companies.txt
+          git commit -m "Add daily sniper hits and update tracking for $(date +'%Y-%m-%d')" || echo "No changes to commit"
+          git pull --rebase origin main
+          git push origin main
