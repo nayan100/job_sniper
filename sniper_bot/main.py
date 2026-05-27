@@ -49,8 +49,17 @@ writer = Agent(
 )
 
 # 2. Define Tasks
+processed_file = "processed_companies.txt"
+if os.path.exists(processed_file):
+    with open(processed_file, "r") as f:
+        already_processed = f.read().splitlines()
+else:
+    already_processed = []
+
+exclude_list = ", ".join(already_processed) if already_processed else "None"
+
 source_task = Task(
-    description='Find 10 companies meeting the criteria in the IoT/Embedded space. Focus on those with products in market for 5+ years or hiring firmware leads.',
+    description=f'Find 10 NEW companies meeting the criteria in the IoT/Embedded space. Do NOT include any of these already processed companies: {exclude_list}. Focus on those with products in market for 5+ years or hiring firmware leads.',
     expected_output='A list of 10 companies with their website, size, and primary product.',
     agent=sourcer
 )
@@ -80,6 +89,8 @@ crew = Crew(
 # 4. Execute and Save
 result = crew.kickoff()
 
+# Extract company names for tracking (assuming they are in the result)
+# We'll use a simple heuristic or ask the agent to format them clearly
 date_str = datetime.now().strftime("%Y-%m-%d")
 output_file = f"daily_hits_{date_str}.md"
 
@@ -87,4 +98,26 @@ with open(output_file, 'w') as f:
     f.write(f"# Daily Sniper Hits - {date_str}\n\n")
     f.write(str(result))
 
-print(f"Done! Results saved to {output_file}")
+# Update processed companies list
+# Since we want to be safe, we'll ask the LLM to extract the names specifically
+extractor_agent = Agent(
+    role='Data Cleaner',
+    goal='Extract exactly 10 company names from the provided text.',
+    backstory='Precision-focused data entry specialist.',
+    llm=gemini_llm
+)
+
+extract_task = Task(
+    description='Extract only the company names from the following report. Return them as a simple newline-separated list.',
+    expected_output='A list of 10 company names, one per line.',
+    agent=extractor_agent,
+    context=[write_task]
+)
+
+cleanup_crew = Crew(agents=[extractor_agent], tasks=[extract_task])
+new_companies = cleanup_crew.kickoff()
+
+with open(processed_file, "a") as f:
+    f.write("\n" + str(new_companies))
+
+print(f"Done! Results saved to {output_file} and {processed_file} updated.")
