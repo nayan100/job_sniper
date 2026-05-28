@@ -3,8 +3,9 @@ name: Daily Sniper Bot
 
 on:
   schedule:
-    - cron: '30 2 * * *' 
-  workflow_dispatch: 
+    # 02:30 UTC is 08:00 AM IST. Note: GitHub Actions schedule can be delayed.
+    - cron: '30 2 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
