@@ -8,4 +8,13 @@ Propeller Health
 Cardiologs
 WoMaster
 InnoPhase IoT
-Formic
+FormicEko Health
+AliveCor
+Exo Imaging (Exo)
+Nauto
+Swift Navigation
+Monnit Corporation
+Particle
+Podimetrics
+Avive Solutions
+Vecna Robotics
