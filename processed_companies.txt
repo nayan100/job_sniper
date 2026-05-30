@@ -18,3 +18,13 @@ Particle
 Podimetrics
 Avive Solutions
 Vecna Robotics
+Empatica
+VitalConnect
+Everactive
+Biotricity
+SecuriThings
+Swift Navigation
+Nauto
+OnLogic
+Memfault
+Element Science
