@@ -38,3 +38,13 @@ Noregon Systems
 ActiGraph
 ZTR Control Systems
 Winmate
+Apple
+Microsoft
+Amazon
+Alphabet
+Meta
+Tesla
+Nvidia
+Netflix
+Adobe
+Salesforce
