@@ -48,3 +48,13 @@ Nvidia
 Netflix
 Adobe
 Salesforce
+Toradex
+Variscite
+TechNexion
+Ezurio
+Beacon EmbeddedWorks
+WINSYSTEMS
+Compulab
+Exor International
+Libelium
+Rigado
