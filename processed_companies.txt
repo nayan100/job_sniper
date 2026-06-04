@@ -68,3 +68,13 @@ VersaLogic
 Syslogic
 Diamond Systems
 Critical Link
+United Electronic Industries (UEI)
+Kvaser
+Sontheim Industrie Elektronik
+InHand Networks
+Eurotech
+Vecow
+Sena Technologies
+Intrepid Control Systems
+Dewesoft
+Acromag
