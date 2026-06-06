@@ -88,3 +88,13 @@ SolidRun
 Exyn Technologies
 Verity AG
 Seegrid
+Glydways
+May Mobility
+Kodiak Robotics
+Diligent Robotics
+Neocis
+Myomo
+Ekso Bionics
+Nalu Medical
+Saluda Medical
+Cala Health
