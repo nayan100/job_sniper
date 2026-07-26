@@ -168,3 +168,13 @@ electroCore
 Link Engine Management (Link ECU)
 PEAK-System Technik GmbH
 ImpediMed
+BioIntelliSense
+TytoCare
+Dusun IoT
+Blickfeld
+Autotalks
+Technica Engineering
+EarlySense
+NeuroPace
+Canary Medical
+GeneSys Elektronik
