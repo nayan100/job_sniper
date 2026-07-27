@@ -178,3 +178,13 @@ EarlySense
 NeuroPace
 Canary Medical
 GeneSys Elektronik
+Advanced Motion Controls (AMC)
+Galil Motion Control
+Captron Electronic GmbH
+Nanotec Electronic GmbH & Co. KG
+Antaira Technologies
+Brainboxes
+Controlant
+b-plus group (b-plus GmbH)
+Micro-X
+Alphasense
