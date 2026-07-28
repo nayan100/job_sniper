@@ -188,3 +188,13 @@ Controlant
 b-plus group (b-plus GmbH)
 Micro-X
 Alphasense
+LMI Technologies
+Percepto
+Inxpect
+TriEye
+Baraja
+Tasso, Inc.
+Nox Medical
+CoreKinect
+Trakm8
+LightMetrics
